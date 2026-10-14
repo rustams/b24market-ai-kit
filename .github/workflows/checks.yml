@@ -1,0 +1,21 @@
+name: Local kit checks
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - name: Pull isolated PHP tooling
+        run: docker pull php:8.2-cli
+      - name: Generator, profiles, lifecycle and reproducible packages
+        env:
+          KIT_PHP_IMAGE: php:8.2-cli
+        run: python3 -m unittest discover -s tests -v
+      - name: Whitespace check
+        run: git diff --check

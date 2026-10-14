@@ -191,6 +191,20 @@ class KitTest(unittest.TestCase):
             project = self.generate(profile, storage, output=str(self.base / (profile + str(storage))))
             VERIFY.verify(project, os.environ.get('KIT_PHP_IMAGE'))
 
+    def test_security_refresh_preserves_local_changes(self):
+        project = self.generate()
+        imported = project / 'external/marketplace-security/README.md'
+        imported.write_text('Local customization must survive')
+        lock = (project / 'external/marketplace-security.lock.json').read_bytes()
+        ref = json.loads(lock)['commit']
+        result = subprocess.run(['python3', str(project / 'scripts/update-security-skills.py'), '--ref', ref], capture_output=True)
+        self.assertEqual(result.returncode, 2)
+        self.assertIn('локально изменён'.encode(), result.stderr)
+        self.assertEqual(imported.read_text(), 'Local customization must survive')
+        self.assertEqual((project / 'external/marketplace-security.lock.json').read_bytes(), lock)
+        bad = subprocess.run(['python3', str(project / 'scripts/update-security-skills.py'), '--ref', 'HEAD'], capture_output=True)
+        self.assertEqual(bad.returncode, 2)
+
     def test_skill_routing_and_references(self):
         for skill in (ROOT / '.agents/skills').glob('*/SKILL.md'):
             text = skill.read_text()

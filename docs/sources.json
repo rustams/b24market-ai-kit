@@ -97,5 +97,23 @@
     "applicability": "Pre-submission security",
     "examples": "external/marketplace-security.lock.json",
     "limitations": "Импорт не означает проведённый аудит или вендорскую модерацию."
+  },
+  {
+    "url": "https://docs.1c-bitrix.ru/api/classes/Bitrix-Main-ModuleManager.html",
+    "topic": "Версия установленного модуля",
+    "checked_at": "2026-10-15",
+    "kind": "vendor",
+    "applicability": "PHP/D7 dependency preflight",
+    "examples": "module/install/index.php",
+    "limitations": "Старая страница метода недоступна; проверяется актуальный API class reference и native main minimum."
+  },
+  {
+    "url": "https://docs.1c-bitrix.ru/api/classes/Bitrix-Main-Data-Cache.html",
+    "topic": "Очистка собственного каталога кэша",
+    "checked_at": "2026-10-15",
+    "kind": "vendor",
+    "applicability": "PHP/D7",
+    "examples": "module/lib/demo.php",
+    "limitations": "TTL не заменяет expired-file cleanup и мониторинг диска."
   }
 ]

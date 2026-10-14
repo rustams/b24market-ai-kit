@@ -1,0 +1,35 @@
+{
+  "scope": "Локальные disposable проекты, Git-объекты и архивы не опубликованы; повторение через unittest/README. Эти SHA фиксируют выполненный локальный прогон, не release артефакты starter-kit.",
+  "artifacts": [
+    {
+      "profile": "local",
+      "kind": "local-full",
+      "commit": "12b1cc46923f339d43fb1098bf34f28c010b566b",
+      "files": 20,
+      "sha256": "bf18bad665e9846462d4968d04679cbbc21c82482bf6d3ca40ce63aabff16de4",
+      "reproducible": true
+    },
+    {
+      "kind": "local-deployment",
+      "commit": "12b1cc46923f339d43fb1098bf34f28c010b566b",
+      "files": 25,
+      "sha256": "f15caae0ece925fd93d6b554560f53f9ea1f49b697b86dc93d4f6b2dc099573d"
+    },
+    {
+      "profile": "marketplace",
+      "kind": "marketplace-full",
+      "commit": "e0084849c59ee6c2ba83e51bf30781dfe5ffae42",
+      "files": 20,
+      "sha256": "f62a8f37d54d4e02d507df16422854ce9f2843f0da0fb6e96f7c2e061082ded3",
+      "reproducible": true
+    },
+    {
+      "kind": "marketplace-update",
+      "commit": "5d8bff5f770b2e94cb48a2dbf2a2e53eb7aad969",
+      "base_commit": "e0084849c59ee6c2ba83e51bf30781dfe5ffae42",
+      "files": 12,
+      "sha256": "90b495b0aea989479959665d2f6580d6e5e25b0e980323f37d4673ee2cf9d97c",
+      "reproducible": true
+    }
+  ]
+}
