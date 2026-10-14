@@ -98,6 +98,7 @@ try {
     $demo::save('=HYPERLINK("bad")');
     check(str_contains($demo::export(), "'=HYPERLINK"), 'CSV formula not neutralized');
     foreach ([" =SUM(1)", "\t+cmd", '-1', '@formula'] as $text) { check(str_starts_with($demo::csvCell($text), "'"), 'Formula bypass'); }
+    check(str_starts_with($demo::csvCell("=1+1\xff"), "'"), 'Invalid UTF-8 bypassed CSV formula protection');
     check($demo::read()['text'] === '=HYPERLINK("bad")', 'Cache was not invalidated');
     check(max(\Bitrix\Main\Data\Cache::$ttls) <= 60, 'TTL unbounded');
     $USER->admin = true;

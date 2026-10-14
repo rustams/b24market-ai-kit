@@ -16,6 +16,8 @@ Updater запускается до копирования кода; он не �
 
 ## Обязательный security flow
 
+Требуется Python 3.10+; generator/core tests совместимы с 3.9, но upstream review использует zip(strict=True). Проверьте `python3 --version`.
+
 Откройте `external/marketplace-security/skills/bitrix-security/using-marketplace-sec/SKILL.md`. Весь upstream импорт MIT с оригинальными references и скриптами, версии в lock JSON. Генератор копирует его без сети. Обновление — `python3 scripts/update-security-skills.py --ref FULL_REVIEWED_SHA`, после чтения нового upstream и проверки diff. Silent auto-update отключён: это изменение исполняемых инструментов и агентных инструкций.
 
 1. Агент выполняет skill scan для `module`, читает recon и каждый достижимый sink, сохраняет доказательный raw JSON. Recon сам по себе не аудит.

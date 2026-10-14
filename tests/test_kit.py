@@ -205,6 +205,39 @@ class KitTest(unittest.TestCase):
         bad = subprocess.run(['python3', str(project / 'scripts/update-security-skills.py'), '--ref', 'HEAD'], capture_output=True)
         self.assertEqual(bad.returncode, 2)
 
+    def test_direct_php_entry_without_bitrix_prolog(self):
+        project = self.generate('marketplace', True)
+        for relative in ['module/install/index.php', 'module/lib/notetable.php']:
+            command = VERIFY.php_command(project / relative, project, os.environ.get('KIT_PHP_IMAGE'))
+            position = command.index('php')
+            command[position + 1:position + 1] = ['-d', 'display_errors=1']
+            result = subprocess.run(command, capture_output=True)
+            self.assertEqual(result.returncode, 0, relative)
+            self.assertEqual(result.stdout, b'', relative)
+            self.assertEqual(result.stderr, b'', relative)
+
+    @unittest.skipIf(__import__('sys').version_info < (3, 10), 'Upstream security flow requires Python 3.10+')
+    def test_imported_security_review_journal_lifecycle(self):
+        import sys
+        evidence = ROOT / 'docs/security-audits/acme.hello'
+        tools = ROOT / 'external/marketplace-security/skills/bitrix-security'
+        before = self.base / 'before.reviewed.json'
+        after = self.base / 'after.reviewed.json'
+        previous = self.base / 'journal.before.json'
+        final = self.base / 'journal.json'
+        project = self.generate('marketplace', True)
+        for raw, reviewed in [('before.json', before), ('after.json', after)]:
+            subprocess.run([sys.executable, str(tools / 'journal-review/scripts/review_journal.py'), str(evidence / raw), '--output', str(reviewed)], check=True, stdout=subprocess.DEVNULL)
+        subprocess.run([sys.executable, str(tools / 'journal-update/scripts/update_journal.py'), str(before), '--module-path', str(project / 'module'), '--output', str(previous)], check=True, stdout=subprocess.DEVNULL)
+        subprocess.run([sys.executable, str(tools / 'journal-update/scripts/update_journal.py'), str(after), '--previous', str(previous), '--module-path', str(project / 'module'), '--archive-sha256', 'a' * 64, '--output', str(final)], check=True, stdout=subprocess.DEVNULL)
+        subprocess.run([sys.executable, str(tools / 'journal-update/scripts/update_journal.py'), '--validate-only', str(final)], check=True, stdout=subprocess.DEVNULL)
+        state = json.loads(final.read_text())['current_state']
+        self.assertEqual(state['status'], 'ready_for_submission')
+        self.assertEqual(state['open_findings'], 0)
+        self.assertEqual(state['fixed_findings'], 2)
+        self.assertEqual(state['archive_sha256'], 'a' * 64)
+        self.assertEqual(len(json.loads(final.read_text())['runs']), 2)
+
     def test_skill_routing_and_references(self):
         for skill in (ROOT / '.agents/skills').glob('*/SKILL.md'):
             text = skill.read_text()

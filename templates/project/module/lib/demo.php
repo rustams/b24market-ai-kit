@@ -40,8 +40,8 @@ final class Demo
 
     public static function csvCell(string $text): string
     {
-        // Excel may interpret formulas after leading whitespace or control characters.
-        return preg_match('/^[\s\x00-\x1F]*[=+@-]/u', $text) ? "'" . $text : $text;
+        // Excel interprets formula prefixes; invalid UTF-8 must also fail closed.
+        return preg_match('/^[\s\x00-\x1F]*[=+@-]/u', $text) === 0 ? $text : "'" . $text;
     }
 
     public static function export($filter = null): string
