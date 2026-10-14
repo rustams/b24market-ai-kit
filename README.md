@@ -68,3 +68,5 @@ python3 scripts/update-security-skills.py --ref REVIEWED_40_CHARACTER_UPSTREAM_S
 Готовность: generator/profile/security/lifecycle/archive checks зелёные; skills и ссылки самодостаточны; приёмка заполнена реальными доказательствами, в том числе native и security journal. Шаблоны ADR/приёмки и точная граница локальных checks включены. CI только проверяет; production/portal/Marketplace jobs отсутствуют.
 
 Полный импортированный security flow требует Python 3.10+ (рекомендуется 3.12); Python 3.9 поддерживается только для генератора и основных локальных проверок. Проверяйте `python3 --version` перед review/journal/UI. Проверка --help не подтверждает исполнение полного flow.
+
+Пошаговая будущая нативная приёмка демонстрационного acme.hello: [инструкция](docs/native-acceptance-acme-hello.md). Два отдельных прогона: clean 0.2.1 и exact 0.2.0 → 0.2.1; кабинет/prefix и baseline являются предварительными условиями. Портальные действия по этой инструкции ещё не выполнялись.

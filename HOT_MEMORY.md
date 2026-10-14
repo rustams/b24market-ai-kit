@@ -19,3 +19,5 @@ Starter-kit реализован самостоятельно в новом пр
 Проведён импортированный scan/review/journal/validate/UI для marketplace acme.hello с optional storage. Прочитаны все 21 recon target плюс description.ru. Две conditional low path-disclosure findings закрыты fixed, CSV malformed UTF-8 regression исправлена отдельно. Тесты до fixes failed, после passed. Финальный журнал ready_for_submission: open/blocking/false_positive/accepted_risk 0, fixed 2. UI localhost:8765 открыт и сверен с API; история содержит два запуска. Full archive SHA 305063f2591bc9f64d634bfeab476e2161d238b82ae7f5321863d5cbe077ba96, candidate 0.2.1.
 
 Upstream execution требует Python 3.10+, --help на 3.9 недостаточен. Проверено на Python 3.12.14/PHP 8.2.33. Native Bitrix/HTTP routing/Excel и кабинет не проверялись; порталы не трогались. Следующий изменённый модуль требует нового аудита.
+
+Подготовлена пошаговая инструкция будущей нативной приёмки acme.hello. Она разделяет clean install 0.2.1 и update от точной 0.2.0; baseline пока только в локальном disposable workspace, право на prefix acme и тестовый канал не подтверждены. Порталы не трогались; это подготовка, а не native acceptance.
