@@ -20,4 +20,6 @@ Starter-kit реализован самостоятельно в новом пр
 
 Upstream execution требует Python 3.10+, --help на 3.9 недостаточен. Проверено на Python 3.12.14/PHP 8.2.33. Native Bitrix/HTTP routing/Excel и кабинет не проверялись; порталы не трогались. Следующий изменённый модуль требует нового аудита.
 
-Подготовлена пошаговая инструкция будущей нативной приёмки acme.hello. Она разделяет clean install 0.2.1 и update от точной 0.2.0; baseline пока только в локальном disposable workspace, право на prefix acme и тестовый канал не подтверждены. Порталы не трогались; это подготовка, а не native acceptance.
+Подготовлена пошаговая инструкция будущей нативной приёмки acme.hello. Она разделяет clean install 0.2.1 и update от точной 0.2.0; точная baseline 0.2.0 включена в репозиторий, право на prefix acme и тестовый канал не подтверждены. Порталы не трогались; это подготовка, а не native acceptance.
+
+Базовая полная acme.hello 0.2.0 сохранена без изменения байтов в docs/security-audits/acme.hello/baseline-0.2.0. SHA256 4f489f79912fe091b04a16b5e2ad5998bdfa469f0cc34e46b0b7144f469daa3e, source 141af1d6a6501979d9d89a37143fa5cb9d3077a5. Manifest/Git blobs/ZIP и overlay delta → full 0.2.1 проверены локально. Только историческая test baseline до security fixes, не актуальный release.

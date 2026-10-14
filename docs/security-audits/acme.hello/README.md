@@ -41,3 +41,5 @@ KIT_PHP_IMAGE=php:8.2-cli python3 -m unittest discover -s tests -v
 После исправления: 13 групп тестов passed на Python 3.12.14/PHP 8.2.33, 284 PHP behavioral assertions по двум профилям с/без storage. Direct-file regressions и реальное выполнение upstream review/journal/lifecycle validation включены в suite. На Python 3.9 upstream integration test явно skipped, остальные core checks поддерживаются.
 
 Открыты native Bitrix install/upgrade/ORM, реальные HTTP routes/display_errors/log ACL, Excel, concurrency/cluster/FPM и партнёрский кабинет. `ready_for_submission` — итог этого локального security journal, не модерация и не production-готовность.
+
+Точная историческая полная база 0.2.0 доступна в [baseline-0.2.0/last_version.zip](baseline-0.2.0/last_version.zip), с манифестом и SHA256SUMS. SHA256 4f489f79912fe091b04a16b5e2ad5998bdfa469f0cc34e46b0b7144f469daa3e. Проверены все Git blobs базы и наложение delta до полного 0.2.1; она содержит прежние low findings и предназначена только для изолированной приёмки обновления.

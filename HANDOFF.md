@@ -8,4 +8,4 @@
 
 Известные ограничения: optional storage только MySQL, file deletion blocked, PHP minimum 8.2; compensation не покрывает process crash/конкурирующий deployment/общую атомарность SiteUpdate. Cache TTL дополняется штатной expired-cache cleanup/квотой. Общий Composer/vendor и ядро не меняются.
 
-Подготовлена docs/native-acceptance-acme-hello.md: установка, exact update, keep/reinstall, missing-table regression и explicit purge. Следующий шаг — согласовать disposable лицензированный стенд, тестовый партнёрский канал/prefix acme и получение точной полной базы 0.2.0; до этого нативные пункты открыты. Подключений не было.
+Подготовлена docs/native-acceptance-acme-hello.md: установка, exact update, keep/reinstall, missing-table regression и explicit purge. Следующий шаг — согласовать disposable лицензированный стенд, тестовый партнёрский канал/prefix acme; точная полная база 0.2.0 уже включена в репозиторий и проверена; до этого нативные пункты открыты. Подключений не было.
