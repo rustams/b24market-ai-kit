@@ -10,6 +10,12 @@ Starter-kit реализован самостоятельно в новом пр
 
 Исторический Radar прочитан без записей и подключений; код/тексты не копировались, project license не обнаружен. Official references прочитаны, реестр включает ограничения. Production и Marketplace не менялись.
 
-Открыты native Loader/ORM/install/update/OS permissions/browser/roles/logs/DB concurrency/cluster/FPM, полный security scan/journal/UI для финального модуля, кабинет/модерация. Локальные API stubs не закрывают native acceptance.
+Открыты native Loader/ORM/install/update/OS permissions/browser/roles/logs/DB concurrency/cluster/FPM, кабинет/модерация. Локальные API stubs не закрывают native acceptance.
 
 Проверено сохранение буквального значения, совпадавшего с прежним техническим sentinel: до фикса regression failed, после использования Option::getRealValue passed. Итог: 11 групп/280 PHP assertions, по 76 assertions в двух независимых проектах.
+
+## Полный security flow acme.hello — 15.10.2026
+
+Проведён импортированный scan/review/journal/validate/UI для marketplace acme.hello с optional storage. Прочитаны все 21 recon target плюс description.ru. Две conditional low path-disclosure findings закрыты fixed, CSV malformed UTF-8 regression исправлена отдельно. Тесты до fixes failed, после passed. Финальный журнал ready_for_submission: open/blocking/false_positive/accepted_risk 0, fixed 2. UI localhost:8765 открыт и сверен с API; история содержит два запуска. Full archive SHA 305063f2591bc9f64d634bfeab476e2161d238b82ae7f5321863d5cbe077ba96, candidate 0.2.1.
+
+Upstream execution требует Python 3.10+, --help на 3.9 недостаточен. Проверено на Python 3.12.14/PHP 8.2.33. Native Bitrix/HTTP routing/Excel и кабинет не проверялись; порталы не трогались. Следующий изменённый модуль требует нового аудита.

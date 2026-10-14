@@ -4,6 +4,6 @@
 
 Для нового модуля используйте README и нужный `.agents/skills/.../SKILL.md`; уточните первый сценарий и сгенерируйте новый независимый каталог. Каждая генерация включает знания, собственные AGENTS/HOT_MEMORY/HANDOFF, tests/build и original security skills.
 
-Следующая внешняя задача требует разрешения: согласовать лицензированный disposable Bitrix стенд и native acceptance matrix. Проверить текущий partner cabinet для prefix, metadata, macOS full ZIP filename, sequential updates и moderation rules. Затем выполнить полный using-marketplace-sec flow на финальном runtime/archive, включая UI и SHA binding. Никаких production/Marketplace действий без поручения.
+Следующая внешняя задача требует разрешения: согласовать лицензированный disposable Bitrix стенд и native acceptance matrix. Проверить текущий partner cabinet для prefix, metadata, macOS full ZIP filename, sequential updates и moderation rules. Для acme.hello 0.2.1 полный flow выполнен, журнал и архивы сохранены в docs/security-audits/acme.hello. Для любого последующего изменения выполнить новый using-marketplace-sec flow, включая UI и SHA binding. Никаких production/Marketplace действий без поручения.
 
 Известные ограничения: optional storage только MySQL, file deletion blocked, PHP minimum 8.2; compensation не покрывает process crash/конкурирующий deployment/общую атомарность SiteUpdate. Cache TTL дополняется штатной expired-cache cleanup/квотой. Общий Composer/vendor и ядро не меняются.

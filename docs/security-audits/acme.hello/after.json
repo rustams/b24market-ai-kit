@@ -1,0 +1,34 @@
+{
+  "success": true,
+  "requestId": "acme.hello-1792013052",
+  "data": {
+    "vulnerabilities": [],
+    "summary": "Повторно прочитаны все 21 recon target и description.ru, каждый источник доведён до sink. Обе прежние low Information Disclosure исправлены guard B_PROLOG_INCLUDED до использования классов платформы; прямое исполнение с display_errors=On тихо завершается. CSV на malformed UTF-8 теперь fail-closed; regression до фикса failed, после passed. Regex injection сигнал — фиксированный literal, include/update source — только trusted payload, filesystem paths confined to own component с symlink/hash/preflight checks. Auth/CSRF/owner/cache проверки precede data access; XSS output context encoded; raw SQL только фиксированный DDL. Upload/SSRF/deserialization/token/payment/SSTI/XML/redirect/header sinks отсутствуют. Открытых подтверждённых или подозреваемых уязвимостей в текущем коде не обнаружено. Это локальный аудит, без native Bitrix/Excel, web-server route/config, shared filesystem races и license acceptance.",
+    "scannedFiles": 21,
+    "riskLevel": "none",
+    "auditedFiles": [
+      "LICENSE",
+      "description.ru",
+      "include.php",
+      "install/components/acme/hello.demo/.description.php",
+      "install/components/acme/hello.demo/class.php",
+      "install/components/acme/hello.demo/lang/ru/.description.php",
+      "install/components/acme/hello.demo/templates/.default/lang/ru/template.php",
+      "install/components/acme/hello.demo/templates/.default/template.php",
+      "install/files.php",
+      "install/index.php",
+      "install/migrations.php",
+      "install/uninstall.php",
+      "install/update.php",
+      "install/version.php",
+      "lang/ru/install/index.php",
+      "lang/ru/options.php",
+      "lib/access.php",
+      "lib/demo.php",
+      "lib/diagnostics.php",
+      "lib/notetable.php",
+      "options.php",
+      "updater.php"
+    ]
+  }
+}

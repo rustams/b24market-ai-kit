@@ -1,0 +1,82 @@
+{
+  "archive_sha256": "2fdd38b14c580bce5f792a40df7a8b62bc2f8fd888af3c78691cc90b74b6b729",
+  "base_commit": "141af1d6a6501979d9d89a37143fa5cb9d3077a5",
+  "files": [
+    {
+      "bytes": 105,
+      "path": "0.2.1/description.ru",
+      "sha256": "32d392e999e0ca283ba08f7b79ec1a85928b1981eadac7dd171214bdcf69b86d"
+    },
+    {
+      "bytes": 377,
+      "path": "0.2.1/install/components/acme/hello.demo/.description.php",
+      "sha256": "3cf3fef81a324104d65e7d6191d92997b6f7ee8292c27f4999cace303966919f"
+    },
+    {
+      "bytes": 823,
+      "path": "0.2.1/install/components/acme/hello.demo/class.php",
+      "sha256": "1b5b018c39de7dd3ca5b673cc49e424d380ff6f6b27f44df8ff551384d569b82"
+    },
+    {
+      "bytes": 192,
+      "path": "0.2.1/install/components/acme/hello.demo/lang/ru/.description.php",
+      "sha256": "104880b54b2e77278fca8f97b93aa5730521f097a8452974d2b465e3c9c1736a"
+    },
+    {
+      "bytes": 219,
+      "path": "0.2.1/install/components/acme/hello.demo/templates/.default/lang/ru/template.php",
+      "sha256": "0934ca309972294f4ae006a0d90c59d918d62834d40ad8afcef0676bef58b833"
+    },
+    {
+      "bytes": 919,
+      "path": "0.2.1/install/components/acme/hello.demo/templates/.default/template.php",
+      "sha256": "f26b5158955fbaca21779bbfc44711a802ec9171957685ec8eebb18bc6ef5983"
+    },
+    {
+      "bytes": 5382,
+      "path": "0.2.1/install/files.php",
+      "sha256": "88d3328c23547b70e763129a0dfd2782016f0a5800cfc196e45c563863495db3"
+    },
+    {
+      "bytes": 5683,
+      "path": "0.2.1/install/index.php",
+      "sha256": "1806d68ab1141e95ddbaac4effa7e7ada1e057194ff6fff1b05f5fd66ed4a42a"
+    },
+    {
+      "bytes": 797,
+      "path": "0.2.1/install/migrations.php",
+      "sha256": "0fcaf6d5d9b77bc6172b73f425341403d19c10326ade7472a8fcbaf3a00bd2ef"
+    },
+    {
+      "bytes": 871,
+      "path": "0.2.1/install/update.php",
+      "sha256": "c0fabd927e4ccab3d185103904b6bee6de6919e0d2b1329d8f67e78611520fe0"
+    },
+    {
+      "bytes": 90,
+      "path": "0.2.1/install/version.php",
+      "sha256": "92cab997acc807e0d3b3f98bd832bde2293b00f38a45425f6b00ed1920a81233"
+    },
+    {
+      "bytes": 2771,
+      "path": "0.2.1/lib/demo.php",
+      "sha256": "5f86dca29335094cf7d3693f9b27169563e15a602fc4c2e04309ebda26e8f315"
+    },
+    {
+      "bytes": 1084,
+      "path": "0.2.1/lib/notetable.php",
+      "sha256": "aa725c83a5d8e8c15f1dd529650b092feaf977f9d3890456319da5b1da719cc0"
+    },
+    {
+      "bytes": 1023,
+      "path": "0.2.1/updater.php",
+      "sha256": "5dca40c335582f1aed18d2be1522d45b93d286cf72de6453f965cb32f21e1e62"
+    }
+  ],
+  "kind": "marketplace-update",
+  "module": "acme.hello",
+  "previous_version": "0.2.0",
+  "removed_files": [],
+  "source_commit": "c32dcf3cdba3c906dc02a780a48d0d543c4ab359",
+  "version": "0.2.1"
+}

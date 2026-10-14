@@ -1,0 +1,172 @@
+{
+  "schema_version": "1.0",
+  "module": {
+    "code": "acme.hello"
+  },
+  "current_state": {
+    "status": "ready_for_submission",
+    "last_run_id": "acme.hello-1792013052",
+    "archive_sha256": "305063f2591bc9f64d634bfeab476e2161d238b82ae7f5321863d5cbe077ba96",
+    "open_findings": 0,
+    "blocking_findings_open": 0,
+    "false_positive_findings": 0,
+    "accepted_risk_findings": 0,
+    "fixed_findings": 2,
+    "removed_findings": 0,
+    "total_findings": 2
+  },
+  "runs": [
+    {
+      "run_id": "acme.hello-1792012858",
+      "created_at": "2026-10-14T21:21:36+00:00",
+      "archive_sha256": "4f489f79912fe091b04a16b5e2ad5998bdfa469f0cc34e46b0b7144f469daa3e",
+      "scanner_request_id": "acme.hello-1792012858",
+      "input_summary": "Прочитаны все 21 recon target и дополнительный description.ru. Найдены две low Information Disclosure при прямом выполнении PHP без пролога с включённым display_errors. Проверены все checklist категории и цепочки callers. CSV helper воспроизводимо пропускает формулу при некорректном UTF-8; отдельная регрессионная проблема: enum upstream не содержит CSV Injection, а PHP RCE или сохранение этих байтов на настоящем Bitrix не доказаны. Поэтому она описана отдельно, без подмены типа XSS/RCE. Нет доказанных auth/CSRF/IDOR/SQLi, upload/SSRF/deserialization/signature/payment/template/XML/redirect/header sinks отсутствуют. Regex manifest фиксирован, source require определяется только trusted module/update payload. Пути файлов в журнале идут только в настроенный error_log; настройки server logs и гонки привилегированных deployments остаются требованиями окружения.",
+      "summary": {
+        "current_scan_findings": 2,
+        "severity_counts": {
+          "low": 2
+        },
+        "new_findings": 2,
+        "still_open_findings": 0,
+        "reopened_findings": 0,
+        "resolved_since_previous_run": 0
+      }
+    },
+    {
+      "run_id": "acme.hello-1792013052",
+      "created_at": "2026-10-14T21:24:12+00:00",
+      "archive_sha256": "305063f2591bc9f64d634bfeab476e2161d238b82ae7f5321863d5cbe077ba96",
+      "scanner_request_id": "acme.hello-1792013052",
+      "input_summary": "Повторно прочитаны все 21 recon target и description.ru, каждый источник доведён до sink. Обе прежние low Information Disclosure исправлены guard B_PROLOG_INCLUDED до использования классов платформы; прямое исполнение с display_errors=On тихо завершается. CSV на malformed UTF-8 теперь fail-closed; regression до фикса failed, после passed. Regex injection сигнал — фиксированный literal, include/update source — только trusted payload, filesystem paths confined to own component с symlink/hash/preflight checks. Auth/CSRF/owner/cache проверки precede data access; XSS output context encoded; raw SQL только фиксированный DDL. Upload/SSRF/deserialization/token/payment/SSTI/XML/redirect/header sinks отсутствуют. Открытых подтверждённых или подозреваемых уязвимостей в текущем коде не обнаружено. Это локальный аудит, без native Bitrix/Excel, web-server route/config, shared filesystem races и license acceptance.",
+      "summary": {
+        "current_scan_findings": 0,
+        "severity_counts": {},
+        "new_findings": 0,
+        "still_open_findings": 0,
+        "reopened_findings": 0,
+        "resolved_since_previous_run": 2
+      }
+    }
+  ],
+  "findings": [
+    {
+      "journal_finding_id": "JF-00001",
+      "fingerprint": "d9b4b97d8dfc45e891ffd13f06936a40",
+      "type": "Information Disclosure",
+      "severity": "low",
+      "status": "fixed",
+      "first_seen_run_id": "acme.hello-1792012858",
+      "last_seen_run_id": "acme.hello-1792012858",
+      "resolved_run_id": "acme.hello-1792013052",
+      "original_location": {
+        "file": "install/index.php",
+        "line": "5"
+      },
+      "current_location": null,
+      "latest_vulnerability": {
+        "file": "install/index.php",
+        "line": "5",
+        "type": "Information Disclosure",
+        "severity": "low",
+        "description": "Подтверждена локальным прямым запуском утечка абсолютного пути и fatal stack без пролога Bitrix при display_errors=On. Файл обращается к отсутствующему классу платформы до проверки B_PROLOG_INCLUDED. Условие HTTP-эксплуатации: сервер допускает прямой URL собственного модуля; на лицензированном портале это не проверено. Пользовательские данные или секреты не раскрыты.",
+        "recommendation": "Остановить обработку до обращения к классам платформы без корректного B_PROLOG_INCLUDED. Сохранить серверное display_errors=Off как отдельное требование окружения.",
+        "fix": "Before:\nLoc::loadMessages(__FILE__);\n\nAfter:\nif (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) { return; }\nLoc::loadMessages(__FILE__);",
+        "reviewed": {
+          "oldSeverity": "low",
+          "newSeverity": "low",
+          "changed": false,
+          "category": "kept-as-reported",
+          "versionScope": "current",
+          "version": "current",
+          "currentVersionRelevance": "present-in-current-scan",
+          "action": "fix",
+          "confidence": "medium",
+          "rationale": "Severity left unchanged after review; no stronger Bitrix/BUS-specific downgrade condition was identified from the journal text alone."
+        }
+      },
+      "events": [
+        {
+          "run_id": "acme.hello-1792012858",
+          "event": "detected",
+          "at": "2026-10-14T21:21:36+00:00",
+          "location": {
+            "file": "install/index.php",
+            "line": "5"
+          },
+          "status": "open"
+        },
+        {
+          "run_id": "acme.hello-1792013052",
+          "event": "resolved",
+          "at": "2026-10-14T21:24:12+00:00",
+          "status": "fixed"
+        }
+      ],
+      "resolution": {
+        "type": "not_reproduced_after_rescan",
+        "resolved_in_run": "acme.hello-1792013052",
+        "reason": "The reviewed scan no longer reports a matching finding for the current archive."
+      }
+    },
+    {
+      "journal_finding_id": "JF-00002",
+      "fingerprint": "a986bf22d9e7404b0a9613adea246fd9",
+      "type": "Information Disclosure",
+      "severity": "low",
+      "status": "fixed",
+      "first_seen_run_id": "acme.hello-1792012858",
+      "last_seen_run_id": "acme.hello-1792012858",
+      "resolved_run_id": "acme.hello-1792013052",
+      "original_location": {
+        "file": "lib/notetable.php",
+        "line": "7"
+      },
+      "current_location": null,
+      "latest_vulnerability": {
+        "file": "lib/notetable.php",
+        "line": "7",
+        "type": "Information Disclosure",
+        "severity": "low",
+        "description": "Подтверждена локальным прямым запуском утечка абсолютного пути и fatal stack без пролога Bitrix при display_errors=On. Файл обращается к отсутствующему классу платформы до проверки B_PROLOG_INCLUDED. Условие HTTP-эксплуатации: сервер допускает прямой URL собственного модуля; на лицензированном портале это не проверено. Пользовательские данные или секреты не раскрыты.",
+        "recommendation": "Остановить обработку до обращения к классам платформы без корректного B_PROLOG_INCLUDED. Сохранить серверное display_errors=Off как отдельное требование окружения.",
+        "fix": "Before:\nfinal class NoteTable extends DataManager\n\nAfter:\nif (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) { return; }\nfinal class NoteTable extends DataManager",
+        "reviewed": {
+          "oldSeverity": "low",
+          "newSeverity": "low",
+          "changed": false,
+          "category": "kept-as-reported",
+          "versionScope": "current",
+          "version": "current",
+          "currentVersionRelevance": "present-in-current-scan",
+          "action": "fix",
+          "confidence": "medium",
+          "rationale": "Severity left unchanged after review; no stronger Bitrix/BUS-specific downgrade condition was identified from the journal text alone."
+        }
+      },
+      "events": [
+        {
+          "run_id": "acme.hello-1792012858",
+          "event": "detected",
+          "at": "2026-10-14T21:21:36+00:00",
+          "location": {
+            "file": "lib/notetable.php",
+            "line": "7"
+          },
+          "status": "open"
+        },
+        {
+          "run_id": "acme.hello-1792013052",
+          "event": "resolved",
+          "at": "2026-10-14T21:24:12+00:00",
+          "status": "fixed"
+        }
+      ],
+      "resolution": {
+        "type": "not_reproduced_after_rescan",
+        "resolved_in_run": "acme.hello-1792013052",
+        "reason": "The reviewed scan no longer reports a matching finding for the current archive."
+      }
+    }
+  ]
+}
