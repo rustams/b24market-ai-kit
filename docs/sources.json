@@ -1,0 +1,101 @@
+[
+  {
+    "url": "https://docs.1c-bitrix.ru/pages/modules/architecture.html",
+    "topic": "Модули, структура, installer, metadata, namespace",
+    "checked_at": "2026-10-14",
+    "kind": "vendor",
+    "applicability": "PHP/D7",
+    "examples": "module/install/index.php; module/include.php",
+    "limitations": "Примеры в документации не заменяют own-path/rollback/security checks."
+  },
+  {
+    "url": "https://docs.1c-bitrix.ru/pages/security/access-control.html",
+    "topic": "Группы, уровни, наследование доступа",
+    "checked_at": "2026-10-14",
+    "kind": "vendor",
+    "applicability": "PHP/D7 и native UI",
+    "examples": "module/lib/access.php",
+    "limitations": "File/module права не дают CRM source права."
+  },
+  {
+    "url": "https://docs.1c-bitrix.ru/",
+    "topic": "Вход в актуальный Bitrix Framework reference",
+    "checked_at": "2026-10-14",
+    "kind": "vendor",
+    "applicability": "PHP/D7",
+    "examples": "docs/architecture.md",
+    "limitations": "Конкретный метод подтверждается своей страницей и целевой версией."
+  },
+  {
+    "url": "https://dev.1c-bitrix.ru/learning/course/index.php?COURSE_ID=101&LESSON_ID=3216&LESSON_PATH=8781.4793.3216",
+    "topic": "Полная сборка, .last_version, версия и ID",
+    "checked_at": "2026-10-14",
+    "kind": "vendor",
+    "applicability": "Marketplace PHP-модуль",
+    "examples": "scripts/build.py marketplace-full",
+    "limitations": "Урок изменён 09.03.2023; macOS filename exception; current cabinet acceptance открыта."
+  },
+  {
+    "url": "https://dev.1c-bitrix.ru/learning/course/index.php?COURSE_ID=101&LESSON_ID=3218&LESSON_PATH=8781.4793.3218",
+    "topic": "Последовательные delta, version/description, updater before copy",
+    "checked_at": "2026-10-14",
+    "kind": "vendor",
+    "applicability": "Marketplace PHP-модуль",
+    "examples": "module/updater.php; scripts/build.py marketplace-update",
+    "limitations": "Урок изменён 19.01.2022; updater не должен зависеть от новых classes; удаления блокируются."
+  },
+  {
+    "url": "https://dev.1c-bitrix.ru/learning/course/index.php?COURSE_ID=101&LESSON_ID=5353&LESSON_PATH=8781.4793.5353",
+    "topic": "Тестирование решений разработчиком",
+    "checked_at": "2026-10-14",
+    "kind": "vendor",
+    "applicability": "Marketplace native acceptance",
+    "examples": "docs/templates/acceptance.md",
+    "limitations": "Не подтверждает модерацию конкретного решения."
+  },
+  {
+    "url": "https://apidocs.bitrix24.ru/",
+    "topic": "REST API и приложения",
+    "checked_at": "2026-10-14",
+    "kind": "upstream",
+    "applicability": "Отдельно выбранные REST интеграции",
+    "examples": "docs/architecture.md",
+    "limitations": "Не источник PHP/D7 ORM или local installer contract."
+  },
+  {
+    "url": "https://getcomposer.org/doc/01-basic-usage.md",
+    "topic": "install из lock, контролируемый update",
+    "checked_at": "2026-10-14",
+    "kind": "upstream",
+    "applicability": "Опциональные private dependencies",
+    "examples": "docs/security.md",
+    "limitations": "В runtime dependencies отсутствуют; CI не запускает Composer."
+  },
+  {
+    "url": "https://dev.1c-bitrix.ru/api_d7/bitrix/main/loader/getlocal.php",
+    "topic": "Определение local/bitrix пути",
+    "checked_at": "2026-10-14",
+    "kind": "vendor",
+    "applicability": "PHP/D7",
+    "examples": "scripts/update-local.php",
+    "limitations": "Путь PHP не доказывает HTTP доступность ресурсов."
+  },
+  {
+    "url": "https://dev.1c-bitrix.ru/api_d7/bitrix/main/application/getdocumentroot.php",
+    "topic": "Document root",
+    "checked_at": "2026-10-14",
+    "kind": "vendor",
+    "applicability": "PHP/D7",
+    "examples": "module/install/index.php",
+    "limitations": "Реальное значение зависит от target installation."
+  },
+  {
+    "url": "https://github.com/bitrix-tools/marketplace-security-skills",
+    "topic": "MIT security scan, review, journal, UI",
+    "checked_at": "2026-10-14",
+    "kind": "upstream",
+    "applicability": "Pre-submission security",
+    "examples": "external/marketplace-security.lock.json",
+    "limitations": "Импорт не означает проведённый аудит или вендорскую модерацию."
+  }
+]

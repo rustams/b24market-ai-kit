@@ -1,0 +1,22 @@
+{
+  "commit": "0cdb4e3fee90b825a0088870712d1dce0f6683f5",
+  "files": {
+    "LICENSE": "fd81443706f89b448f9100ef36679846bbf4c09d6796592116a77128dddd6db1",
+    "README.md": "e5af90c4003ee9e1375067438085b2918fe70c1a2cfc84851d2d11d957b7c0ae",
+    "skills/bitrix-security/journal-review/SKILL.md": "374b14611b54f0beb1c5bd83c7543bc1e53106e85acdff433f8062f4a3b7c62e",
+    "skills/bitrix-security/journal-review/scripts/review_journal.py": "e82c496beee60b873900bc4aabb40cc0c86dc26e0e6ed1a4a77d7e3a90e6a436",
+    "skills/bitrix-security/journal-update/SKILL.md": "b5f6b53cd465f0782dc8de8e3ca965d4d3218270195a8f9d0764d5e34e90ec60",
+    "skills/bitrix-security/journal-update/scripts/update_journal.py": "248b57ef42572e4e46538854e99efa38aa43a23c4033ce28cdce71ed37b092cc",
+    "skills/bitrix-security/scan-composer/SKILL.md": "6c81978e2fc29e4a62faa64c7b047940aaf96d889239a4c1d466c90d06e12f1a",
+    "skills/bitrix-security/scan/SKILL.md": "e52d1164a565a9288f94e735fe41c46c375d6bc163c100646ea8a60149ba8ae1",
+    "skills/bitrix-security/scan/references/bitrix-patterns.md": "c39d50a19a6564e34cddb3bba3c42b5cf28c2e9a918d86ce25370126809b4846",
+    "skills/bitrix-security/scan/references/severity-rubric.md": "f0d109825d7b80524499d009e64858a0badce3df4c68dea52a22b7e404d6dfeb",
+    "skills/bitrix-security/scan/references/vulnerability-checklist.md": "79c249aec7a3ac313266bce1033b80c0077f8ed019242f580865695374289feb",
+    "skills/bitrix-security/scan/scripts/recon.py": "fa728e7d044c6d29efe6f8120cf697a334d73d0e8eb242bf99e35e85a7e2086e",
+    "skills/bitrix-security/using-marketplace-sec/SKILL.md": "34781fa04e119c4cfad352869d72ef3bca08ee3b645d302f8b41da25a74b6e17",
+    "tools/journal_ui_server.py": "b440c521fc7fee5fb430ceffd1caf81e77931d4b72583f21bcd3514d3888e1e8",
+    "tools/vendor/chart.umd.min.js": "206b6e8bb00fc7bba2c7ee80ca41db3e9e05ba7be0aa35abeba9cfd5357f5d0e"
+  },
+  "license": "MIT",
+  "url": "https://github.com/bitrix-tools/marketplace-security-skills.git"
+}
