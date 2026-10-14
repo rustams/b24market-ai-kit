@@ -37,6 +37,7 @@ namespace Bitrix\Main\Config {
         public static array $values = [];
         public static int $reads = 0;
         public static function get(string $id, string $key, string $default = ''): string { self::$reads++; return self::$values[$id][$key] ?? $default; }
+        public static function getRealValue(string $id, string $key): ?string { self::$reads++; return self::$values[$id][$key] ?? null; }
         public static function set(string $id, string $key, string $value): void { self::$values[$id][$key] = $value; }
         public static function delete(string $id, array $filter = []): void {
             if (isset($filter['name'])) { unset(self::$values[$id][$filter['name']]); }

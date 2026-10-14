@@ -146,6 +146,11 @@ try {
 
     check($demo::read()['text'] === '=HYPERLINK("bad")', 'Update lost user setting');
     if ($config['storage']) { check(count(\Bitrix\Main\Application::getConnection()->tables[$table]) === 1, 'Update lost rows'); }
+    $demo::save('__KIT_ABSENT__');
+    check($module->DoUninstall(), 'Literal marker uninstall failed');
+    check($module->DoInstall(), 'Literal marker reinstall failed');
+    check($demo::read()['text'] === '__KIT_ABSENT__', 'User text collided with absence marker');
+    $demo::save('=HYPERLINK("bad")');
     // Customized active code must survive rejection; neighboring paths are untouched.
     $target = $component . '/class.php'; $original = file_get_contents($target);
     file_put_contents($target, 'custom');

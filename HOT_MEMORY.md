@@ -11,3 +11,5 @@ Starter-kit реализован самостоятельно в новом пр
 Исторический Radar прочитан без записей и подключений; код/тексты не копировались, project license не обнаружен. Official references прочитаны, реестр включает ограничения. Production и Marketplace не менялись.
 
 Открыты native Loader/ORM/install/update/OS permissions/browser/roles/logs/DB concurrency/cluster/FPM, полный security scan/journal/UI для финального модуля, кабинет/модерация. Локальные API stubs не закрывают native acceptance.
+
+Проверено сохранение буквального значения, совпадавшего с прежним техническим sentinel: до фикса regression failed, после использования Option::getRealValue passed. Итог: 11 групп/280 PHP assertions, по 76 assertions в двух независимых проектах.

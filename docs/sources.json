@@ -115,5 +115,14 @@
     "applicability": "PHP/D7",
     "examples": "module/lib/demo.php",
     "limitations": "TTL не заменяет expired-file cleanup и мониторинг диска."
+  },
+  {
+    "url": "https://docs.1c-bitrix.ru/api/classes/Bitrix-Main-Config-Option.html",
+    "topic": "Реальное сохранённое значение, null при отсутствии",
+    "checked_at": "2026-10-15",
+    "kind": "vendor",
+    "applicability": "PHP/D7 lifecycle snapshot",
+    "examples": "module/install/index.php; tests/runtime/check.php",
+    "limitations": "Нативный lifecycle выбранной версии main остаётся открытым."
   }
 ]

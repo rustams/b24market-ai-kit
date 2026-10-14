@@ -48,7 +48,7 @@ class @@CLASS@@ extends CModule
             $db = \Bitrix\Main\Application::getConnection();
             $tableExisted = @@STORAGE@@ && $db->isTableExists('@@TABLE@@');
             foreach (['greeting', 'files_manifest', 'schema_version', 'storage_cursor'] as $key) {
-                $snapshot[$key] = Option::get($this->MODULE_ID, $key, '__KIT_ABSENT__');
+                $snapshot[$key] = Option::getRealValue($this->MODULE_ID, $key);
             }
             if (version_compare(PHP_VERSION, '@@MIN_PHP@@', '<') || version_compare(ModuleManager::getVersion('main') ?: '0', '@@MIN_BITRIX@@', '<')) {
                 throw new RuntimeException('Unsupported dependency version');
@@ -61,7 +61,7 @@ class @@CLASS@@ extends CModule
             if (!ModuleManager::isModuleInstalled($this->MODULE_ID)) { throw new RuntimeException('Module registration failed'); }
             $update = require __DIR__ . '/update.php';
             $update(__DIR__);
-            if ($snapshot['greeting'] === '__KIT_ABSENT__') { Option::set($this->MODULE_ID, 'greeting', 'Здравствуйте!'); }
+            if ($snapshot['greeting'] === null) { Option::set($this->MODULE_ID, 'greeting', 'Здравствуйте!'); }
             Option::set($this->MODULE_ID, 'files_manifest', json_encode($result['manifest'], JSON_THROW_ON_ERROR));
             return true;
         } catch (Throwable $error) {
@@ -69,7 +69,7 @@ class @@CLASS@@ extends CModule
                 if (ModuleManager::isModuleInstalled($this->MODULE_ID)) { ModuleManager::unRegisterModule($this->MODULE_ID); }
                 if ($db && @@STORAGE@@ && !$tableExisted && $db->isTableExists('@@TABLE@@')) { $db->dropTable('@@TABLE@@'); }
                 foreach ($snapshot as $key => $value) {
-                    if ($value === '__KIT_ABSENT__') { Option::delete($this->MODULE_ID, ['name' => $key]); }
+                    if ($value === null) { Option::delete($this->MODULE_ID, ['name' => $key]); }
                     else { Option::set($this->MODULE_ID, $key, $value); }
                 }
                 if ($undo) { $undo(); }
